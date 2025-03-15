@@ -104,7 +104,7 @@ const Header = () => {
                 ['Dashboard', '/dashboard'],
                 ['Resources', '/resources'],
                 ['About', '/about'],
-                ['Sign in', '/signin'],
+                ['Sign in', '/login'],
               ].map(([title, path]) => (
                 <Link
                   key={path}
