@@ -99,10 +99,8 @@ const Header = () => {
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {[
-                ["Browse Events", '/events'],
-                ["Hackathons", '/hackathons'],
-                ['Dashboard', '/dashboard'],
-                ['Resources', '/resources'],
+                ["Browse Events", '/browse-events'],
+                ['Resources', '/'],
                 ['About', '/about'],
                 ['Sign in', '/login'],
               ].map(([title, path]) => (
