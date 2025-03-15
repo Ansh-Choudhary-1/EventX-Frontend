@@ -133,7 +133,7 @@ const Home = () => {
       className="flex justify-center"
     >
       <Link
-        to="/get-started"
+        to="/browse-events"
         className="inline-flex items-center px-8 py-4 text-lg font-bold text-black bg-yellow-400 rounded-full hover:bg-yellow-300 transition-all transform hover:scale-105 neon-border"
       >
         Get Started
