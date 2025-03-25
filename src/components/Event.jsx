@@ -1,5 +1,7 @@
 import React from 'react';
-import { ArrowUpRight, Eye, Users, Clock, ArrowRight, Link } from 'lucide-react';
+import { ArrowUpRight, Eye, Users, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {ShineBorder} from "./magicui/shine-border.jsx"
 import organizeService from '../backend/organize.js';
 import { useNavigate } from 'react-router-dom';
 
@@ -79,7 +81,8 @@ const Event = () => {
   // ];
 
   const CompetitionCard = ({ competition }) => (
-    <div onClick={()=>navigate(`/hackathon/${competition._id}`)} className="relative overflow-hidden rounded-2xl shadow-lg transition-transform transform hover:scale-105  bg-white">
+    <div onClick={()=>navigate(`/hackathon/${competition._id}`)} className="relative overflow-hidden rounded-2xl shadow-lg transition-transform transform hover:scale-105">
+      <ShineBorder borderWidth={2} duration={6} shineColor="#FFD700"/>
       {/* Banner Image */}
       <div className="relative h-48 w-full">
         <img 
@@ -87,15 +90,15 @@ const Event = () => {
           alt={competition.name}
           className="w-full h-full object-cover rounded-t-2xl"
         />
-        <div className={`absolute inset-0 bg-green-700 opacity-60`}></div>
+        <div className={`absolute inset-0 opacity-60`}></div>
         
 
         {/* Arrow Link */}
         <Link 
           href="/event-page"
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+          className="absolute top-3 right-3 p-2 rounded-full bg-white shadow-md hover:bg-gray-200 transition-colors"
         >
-          <ArrowUpRight className="w-7 h-7 text-black" />
+          <ArrowUpRight className="w-5 h-5 text-gray-800" />
         </Link>
       </div>
 
