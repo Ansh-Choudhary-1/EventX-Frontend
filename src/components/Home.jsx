@@ -17,7 +17,7 @@ import { FlipText } from './magicui/flip-text';
 
 //for testimonials
 const Card = ({ name, Role, text }) => (
-  <div className="w-80 bg-green-100 rounded-lg shadow-lg p-6 text-center mx-4">
+  <div className="w-full sm:w-80 bg-green-100 rounded-lg shadow-lg p-6 text-center mx-2 sm:mx-4">
     <p className="text-lg italic text-gray-700">"{text}"</p>
     <h3 className="mt-4 text-green-700 font-semibold">{name}</h3>
     <span className="text-sm text-gray-500">{Role}</span>
@@ -85,7 +85,7 @@ const Home = () => {
 
     
       {/* Hero Section */}
-  <section className="relative bg-white dark:bg-black py-20 pt-32 transition-colors overflow-hidden">
+  <section className="relative bg-white dark:bg-black py-16 pt-32 transition-colors overflow-hidden">
   <div className="absolute inset-0">
     <Particles
       quantity={100}
@@ -301,7 +301,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-6">
           <h2 className="text-4xl font-bold mb-8 dark:neon-text">Ready to Start Your Journey?</h2>
           <Link
-            to="/host"
+            to="/organize"
             className="inline-flex items-center px-8 py-4 text-lg font-bold text-black bg-yellow-400 rounded-full hover:bg-yellow-300 transition-all transform hover:scale-105 neon-border"
           >
             Host an Event

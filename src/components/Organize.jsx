@@ -22,40 +22,7 @@ const OrganizeEventForm = () => {
   const onSubmit = async (data) => {
     const loadingToast = toast.loading("Creating hackathon...");
     try {
-      // console.log("Form data received:", data);
-      
-      //       // Convert date inputs
-      //       const currentTimestamp = Math.floor(Date.now() / 1000);
-      //       let startDate = Math.floor(new Date(`${data.startDate}T00:00:00Z`).getTime() / 1000);
-      //       let endDate = Math.floor(new Date(`${data.endDate}T00:00:00Z`).getTime() / 1000);
-      
-      //       if (!startDate || startDate <= currentTimestamp) {
-      //         startDate = currentTimestamp + 300; // Default to 5 minutes in the future
-      //       }
-      //       if (!endDate || endDate <= startDate) {
-      //         throw new Error("End date must be after start date.");
-      //       }
-      
-      //       // Dispatch Redux action to create the hackathon
-      //       const result = await dispatch(createNewHackathon({
-      //         name: data.name,
-      //         description: data.description,
-      //         prizePool: data.prizePool.toString(),
-      //         firstPrizePercent: Number(data.firstPrizePercent),
-      //         secondPrizePercent: Number(data.secondPrizePercent),
-      //         thirdPrizePercent: Number(data.thirdPrizePercent),
-      //         maxTeamSize: Number(data.maxTeamSize),
-      //         maxTeams: 999999,
-      //         startDate,
-      //         endDate,
-      //         roundTotal: Number(data.roundTotal),
-      //         roundAt: data.roundAt,
-      //       })).unwrap();
-      
-      //       console.log("Hackathon created:", result);
-      //toast.success("Hackathon created successfully!");
-            console.log(bannerFile);
-            
+           
             const formData = new FormData();
             formData.append("name", data.name);
             formData.append("description", data.description);
@@ -101,7 +68,7 @@ const OrganizeEventForm = () => {
        </div>
       <div className=" relative max-w-4xl mx-auto bg-white/90 p-8 rounded-2xl  backdrop-blur-md border border-gray-200  shadow-md">
         <div className="flex items-center mb-8">
-          <button className="flex items-center text-gray-600 hover:text-gray-900">
+          <button onClick={()=> navigate(-1)} className="flex items-center text-gray-600 hover:text-gray-900">
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back
           </button>
