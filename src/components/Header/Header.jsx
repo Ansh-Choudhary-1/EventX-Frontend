@@ -5,7 +5,7 @@ import { Trophy,Menu, X } from 'lucide-react';
 import LogoutBtn from './LogoutBtn';
 import { useSelector } from 'react-redux';
 import AvatarDropdown from '../AvatarDropdown';
-//import { ThemeToggle } from './ThemeToggle';
+;
 
 const Header = () => {
   const authStatus = useSelector((state)=>state.auth?.status)
@@ -13,7 +13,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
+   
+     
     <nav className="bg-white dark:bg-black border-b border-yellow-400 fixed w-full top-0 z-50 transition-colors">
+ 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -102,7 +105,6 @@ const Header = () => {
                 ["Browse Events", '/browse-events'],
                 ['Resources', '/'],
                 ['About', '/about'],
-                ['Sign in', '/login'],
               ].map(([title, path]) => (
                 <Link
                   key={path}
@@ -112,17 +114,29 @@ const Header = () => {
                   {title}
                 </Link>
               ))}
-              <Link
-                to="/signup"
-                className="block px-3 py-2 text-base font-medium text-black bg-yellow-400 rounded-lg hover:bg-yellow-300"
-              >
-                Sign up
-              </Link>
+
+               {!authStatus && (
+              <>
+                <Link
+                  to="/login"
+                  className="block px-3 py-2 text-base font-medium text-gray-900 dark:text-yellow-400 hover:text-yellow-600 dark:hover:text-yellow-300"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  to="/signup"
+                  className="block px-3 py-2  text-base  font-medium text-black bg-yellow-400 rounded-lg hover:bg-yellow-300 neon-border"
+                >
+                  Sign up
+                </Link>
+              </>
+            )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
+   
   );
 };
 

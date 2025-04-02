@@ -25,6 +25,11 @@ function EventPage() {
   const [openFAQIndex, setOpenFAQIndex] = useState(null);
   const [user,setUser] = useState(null)
   const [round,setRound] = useState(null);
+  const { id } = useParams();
+  const [isOwner,setIsOwner] = useState(false)
+  const [hackathon, setHackathon] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   
   
 
@@ -54,11 +59,7 @@ function EventPage() {
 
 
 
-  const { id } = useParams();
-  const [isOwner,setIsOwner] = useState(false)
-  const [hackathon, setHackathon] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+
   useEffect(()=>{
     const fetchData = async () => {
       try {

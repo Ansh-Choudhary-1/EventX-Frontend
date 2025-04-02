@@ -20,17 +20,7 @@ function SubmissionList() {
     }
     fetchData()
   },[])
-  // const documents = [
-  //   {
-  //     _id: '67d2e9a703bc122356559da7',
-  //     hackathoId: '67ced62e9c13eb09f7061dd2',
-  //     teamId: '67cedc4fe77bec55fadb9881',
-  //     submissionUrl: "http://res.cloudinary.com/dhxgaemnk/image/upload/v1741875622/xte31tplc…",
-  //     gitUrl: "Anshs",
-  //     submittedAt: "2025-03-13T14:20:23.062+00:00",
-  //     __v: 0
-  //   }
-  // ];
+
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString();
