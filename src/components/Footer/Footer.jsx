@@ -10,11 +10,11 @@ import { FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 ">
           <div>
             <h3 className="text-lg font-semibold mb-4">About EventX</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm sm:text-base">
               Your one-stop platform for discovering and participating in events and hackathons.
             </p>
           </div>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
+        <div className="mt-8 pt-6 border-t border-gray-800 text-center text-sm sm:text-base">
           <p className="text-gray-400">&copy; 2025 EVENTX. All rights reserved.</p>
         </div>
       </div>

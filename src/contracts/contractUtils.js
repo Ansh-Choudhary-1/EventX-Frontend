@@ -18,7 +18,7 @@ export const initializeContract = async () => {
     try {
       await window.ethereum.request({ method: "eth_requestAccounts" });
     } catch (error) {
-      throw new Error("User rejected the connection request.");
+      throw new Error("User rejected the connection request.",error);
     }
 
     signer = await provider.getSigner();

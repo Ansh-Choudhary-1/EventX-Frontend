@@ -191,12 +191,12 @@ const onSubmit = async (formData) => {
           </div>
 
           {/* Team ID Section */}
-          <div className="bg-gray-50 rounded-lg p-4 mb-6">
+          <div className="bg-gray-50 rounded-lg p-2 mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Team Invitation Code
             </label>
-            <div className="flex items-center justify-between bg-white rounded-md border border-gray-300 p-3">
-              <code className="text-sm font-mono text-gray-900">
+            <div className="flex flex-wrap items-center justify-between bg-white rounded-md border border-gray-300 p-3 w-full">
+              <code className="text-sm font-mono text-gray-900  overflow-x-auto max-w-full">
                 {displayData.teamID}
               </code>
               <button
