@@ -54,11 +54,12 @@ export default function ParticipantDashboard() {
     
     const handleJoinTeam = async (e) => {
         e.preventDefault();
-        // Handle team joining logic here
+      
         try {
             const response = await participantService.joinTeam(teamCode);
     
             if (response.success) {
+                alert("joined team successfully")
                 console.log('Joined Team:', response);
     
                 // Redirect user to their team page
@@ -68,13 +69,11 @@ export default function ParticipantDashboard() {
                 if (response.message === "You are already a member of this team" || 
                     response.message === "You are already part of a team for this hackathon") {
                     
-                    // If user is already in a team, redirect them to that team's page
+
                     console.log("User already in a team, redirecting...");
                     navigate(`/team/${id}/${response.teamId}`);
                 }
-                if(response.message === "Team is already at maximum capacity")navigate("")
-                
-                // Show alert for other errors
+                else if(response.message === "Team is already at maximum capacity")navigate("")
                 alert(response.message);
             }
         } catch (error) {
