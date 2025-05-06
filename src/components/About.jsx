@@ -1,13 +1,32 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useTransform,useScroll, useMotionTemplate } from 'framer-motion';
 import { Rocket, Users, Award, Brain, Key } from 'lucide-react';
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, y: 0 },
+  visible: { opacity: 1, y: 20 }
 };
 
+const sectionBlur =()=>{
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  const blur = useTransform(scrollYProgress, [0.5, 1], [0, 10]);
+  const blurStyle = { filter: useMotionTemplate`blur(${blur}px)` };
+  return{ref,blurStyle};
+};
+
+
+
 const About = () => {
+  const mission = sectionBlur();
+  const story = sectionBlur();
+  const features = sectionBlur();
+  const Impact = sectionBlur();
+ 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12">
       <div className="max-w-7xl mx-auto p-6 space-y-12">
@@ -17,7 +36,7 @@ const About = () => {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
         >
           <h1 className="text-5xl font-extrabold text-yellow-400 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mt-6">
             About EventX
@@ -29,12 +48,14 @@ const About = () => {
 
         {/* Our Mission */}
         <motion.section 
+         ref={mission.ref}
+         style={mission.blurStyle}
           className="bg-white p-8 rounded-2xl  hover:shadow-2xl transition-shadow duration-300"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeIn}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="flex items-start gap-6">
             <div className="flex-shrink-0">
@@ -55,7 +76,9 @@ const About = () => {
         </motion.section>
 
         {/* Our Story */}
-        <motion.section 
+        <motion.section
+        ref={story.ref}
+        style={story.blurStyle}
           className="bg-white p-8 rounded-2xl  hover:shadow-2xl transition-shadow duration-300"
           initial="hidden"
           whileInView="visible"
@@ -83,6 +106,8 @@ const About = () => {
 
         {/* Key Features & Technology */}
         <motion.section 
+        ref={features.ref}
+        style={features.blurStyle}
           className="bg-white p-8 rounded-2xl  hover:shadow-2xl transition-shadow duration-300"
           initial="hidden"
           whileInView="visible"
@@ -141,6 +166,8 @@ const About = () => {
 
         {/* Impact & Benefits */}
         <motion.section 
+       ref={Impact.ref}
+       style={Impact.blurStyle}
           className="bg-white p-8 rounded-2xl  hover:shadow-2xl transition-shadow duration-300"
           initial="hidden"
           whileInView="visible"

@@ -8,9 +8,39 @@ import AvatarDropdown from '../AvatarDropdown';
 ;
 
 const Header = () => {
+
+  const parentVarients={
+    open: {
+      transition: {
+        staggerChildren: 0.07,
+        delayChildren: 0.2,
+      },
+    },
+    closed: {
+       transition:{
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+       },
+    },
+  }
+
+  const childVarients = {
+    open: {
+      opacity: 1,
+      y:0,
+      transition: { type: 'spring', stiffness: 300, damping: 24 },
+    },
+    closed: {
+      opacity: 0,
+      y: -10,
+      transition: { duration: 0.3 },
+    }
+
+  }
   const authStatus = useSelector((state)=>state.auth?.status)
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   return (
    
@@ -95,17 +125,21 @@ const Header = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={parentVarients}
             className="md:hidden bg-white dark:bg-black"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <motion.div 
+            variants={parentVarients}
+            className="px-2 pt-2 pb-3 space-y-1">
               {[
                 ["Browse Events", '/browse-events'],
                 ['Resources', '/'],
                 ['About', '/about'],
               ].map(([title, path]) => (
+                <motion.div key={path} variants={childVarients}>
                 <Link
                   key={path}
                   to={path}
@@ -113,10 +147,12 @@ const Header = () => {
                 >
                   {title}
                 </Link>
+                </motion.div>
               ))}
 
                {!authStatus && (
               <>
+              <motion.div variants={childVarients}>
                 <Link
                   to="/login"
                   className="block px-3 py-2 text-base font-medium text-gray-900 dark:text-yellow-400 hover:text-yellow-600 dark:hover:text-yellow-300"
@@ -129,9 +165,10 @@ const Header = () => {
                 >
                   Sign up
                 </Link>
+                </motion.div>
               </>
             )}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
