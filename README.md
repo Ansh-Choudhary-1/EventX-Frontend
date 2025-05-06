@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  ![EventX Logo](https://via.placeholder.com/200x100?text=EventX)
+  
   
   **Transforming Event Management with AI, Blockchain & Web3 Integration**
 
@@ -86,10 +86,8 @@ We welcome contributions from the community! Please read our [Contributing Guide
 
 ## 📬 Contact
 
-- **Website:** [eventx.io](https://eventx.io)
-- **Email:** contact@eventx.io
-- **Twitter:** [@EventX_Platform](https://twitter.com/EventX_Platform)
-- **Discord:** [EventX Community](https://discord.gg/eventx)
+- **Website:** [eventx.io]((https://eventx-beige.vercel.app/))
+
 
 ## 📄 License
 
