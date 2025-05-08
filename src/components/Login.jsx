@@ -7,6 +7,7 @@ import { Input} from "./index";
 import { Mail } from "lucide-react";
 import { Meteors } from "./magicui/meteors";
 import authService from "../backend/auth";
+import {toast} from "react-hot-toast"
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -20,20 +21,18 @@ function Login() {
     setError("");
 
     try {
-
       const loginResponse = await authService.logIn(data)
       console.log(loginResponse);
       
       if(loginResponse && loginResponse.user){
-        console.log("we here");
-        
         dispatch(login({userData:loginResponse.user}))
+        toast.success("👋 Welcome back!");
         console.log("Dispatched");
+        navigate("/browse-events")
       }
-      navigate("/browse-events")
-      
     } catch (err) {
       setError("Invalid email or password");
+      toast.error("❌ Invalid email or password!");
     } finally {
       setLoading(false);
     }

@@ -7,6 +7,7 @@ import { Input } from "./index";
 import { Mail, User } from "lucide-react";
 import { Meteors } from "./magicui/meteors";
 import authService from "../backend/auth.js";
+import { toast } from "react-hot-toast";
 
 function Signup() {
   const navigate = useNavigate();
@@ -22,9 +23,13 @@ function Signup() {
 
     try {
       const response = await authService.createAccount(data)
-      if(response.status==200)navigate("/login");
+      if(response.status==200){
+        toast.success("🎉 Welcome to EventX!");
+        navigate("/login");
+      }
     } catch (err) {
       setError("Signup failed, please try again.");
+      toast.error("❌ Signup failed. Try again!");
       console.log(err);
       
     } finally {
