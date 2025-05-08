@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import authService from './backend/auth.js';
 import { useEffect } from 'react';
 import { login,logout } from './store/authSlice.js';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
    <div className='flex flex-col min-h-screen '>
     <Header/>
     <main className='flex-1'>
+    <Toaster position='top-left'/>
     <Outlet/>
     </main>
     <Footer/>

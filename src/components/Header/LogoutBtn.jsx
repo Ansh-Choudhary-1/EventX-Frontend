@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import authService from '../../backend/auth'
 import store from '../../store/store'
 import {logout} from '../../store/authSlice.js'
+import { toast } from "react-hot-toast";
 
 function LogoutBtn() {
     const dispatch = useDispatch()
@@ -10,6 +11,7 @@ function LogoutBtn() {
         authService.logout()
         .then(()=>{
             dispatch(logout())
+            toast('Logged out😔')
             console.log("Redux state after logout:", store.getState());
         })
     }
